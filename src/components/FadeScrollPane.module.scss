@@ -1,0 +1,83 @@
+:root {
+  --fade: 72px; /* fade length; tweak to taste */
+}
+
+/* Sticky container so the pane aligns with the right gallery */
+.wrap {
+  position: sticky;
+  top: 140px;                      /* match your gallery's sticky top */
+  max-height: calc(100vh - 160px); /* viewport minus header/spacing */
+  overflow: hidden;   
+  margin-top: 30px;         /* clip the scroll body; masks do the fade */
+}
+
+/* The actual scroll area */
+.pane {
+  max-height: inherit;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 10px;
+    max-height: 550px;
+
+  /* Default: only bottom fade (so the first card is fully visible) */
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    #000 0%,
+    #000 calc(100% - var(--fade)),
+    transparent 100%
+  );
+          mask-image: linear-gradient(
+    to bottom,
+    #000 0%,
+    #000 calc(100% - var(--fade)),
+    transparent 100%
+  );
+
+  /* Nice thin scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: #5b6ef5 transparent;
+}
+.pane::-webkit-scrollbar { width: 6px; }
+.pane::-webkit-scrollbar-track { background: transparent; }
+.pane::-webkit-scrollbar-thumb { background: #5b6ef5; border-radius: 3px; }
+.pane::-webkit-scrollbar-thumb:hover { background: #4a5dd4; }
+
+/* While scrolled: fade on both top and bottom */
+.scrolledDown {
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    #000 60px,
+    #000 calc(100% - 60px),
+    transparent 100%
+  );
+          mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    #000 60px,
+    #000 calc(100% - 60px),
+    transparent 100%
+  );
+}
+
+/* At bottom: keep top fade, remove bottom fade */
+.atBottom {
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    #000 60px,
+    #000 100%
+  );
+          mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    #000 60px,
+    #000 100%
+  );
+}
+
+/* If you're both at top and bottom (very short content), no mask at all */
+.atRest {
+  -webkit-mask-image: none;
+          mask-image: none;
+}
