@@ -1,36 +1,99 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Alexander Andersson — Portfolio
+
+Modern personal site built with Next.js 16 and React 19. The layout focuses on strong first impressions, SEO-friendly server components, and data-driven sections that make it easy to grow the portfolio over time.
+
+### Highlights
+
+- **SSR by default** – all pages use server components for performance and SEO.
+- **Section modules** – home sections live in `src/components/sections` with paired `.module.scss`.
+- **Project library** – centralised data in `src/data/project.ts`, served through `src/lib/projects.ts`.
+- **Scoped styling** – global file only defines tokens + resets; everything else is a CSS Module.
+- **Interactive detail pages** – sticky gallery, fade scroll pane, keyboard navigation for screenshots.
+
+### Tech Stack
+
+- Next.js 16 (App Router) + React 19
+- TypeScript, SCSS Modules
+- ESLint (Next config)
+
+---
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Useful Scripts
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `npm run lint` – lint whole project.
+- `npm run build` – production build.
+- `npm run start` – start built app.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## Content Management
 
-To learn more about Next.js, take a look at the following resources:
+### Projects
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Add or edit entries in `src/data/project.ts`.
+2. If you need screenshots, drop them under `public/images/projects/<slug>/`.
+3. Each project can define: `summary`, `tags`, `problem`, `solution`, `highlights`, `results`, `links`, and `screens`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Home page pulls featured projects via `getFeaturedProjects()`, while `/projects` renders the full list.
 
-## Deploy on Vercel
+### Hero, Skills & Contact
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+All homepage copy and nav links live in `src/data/profile.ts`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Update hero headline/CTA via `heroContent`.
+- Tweak nav items with `navLinks`.
+- Maintain skills cards with `skills`.
+- Contact links power the call-to-action buttons in the footer section.
+
+---
+
+## Project Structure
+
+```
+src/
+  app/
+    page.tsx                     # Home (SSR)
+    projects/                    # Projects index + dynamic detail route
+  components/
+    Nav.tsx, ScrollEffects.tsx   # Navigation + smooth scroll helpers
+    sections/                    # Home sections + scoped styles
+  data/                          # Structured content (projects, profile)
+  lib/                           # Thin server-side helpers
+  styles/                        # Global tokens + component styles
+public/
+  images/projects/<slug>/        # Optimised portfolio imagery
+```
+
+---
+
+## Deployment
+
+Deploy to Vercel or any Next.js-compatible host.
+
+```bash
+npm run build
+npm run start
+```
+
+Remember to set `NEXT_PUBLIC_SITE_URL` for accurate metadata in production.
+
+---
+
+## Contributing / Customising
+
+This repository is tailored to Alexander Andersson’s portfolio, but the structure should be easy to adapt:
+
+1. Fork or clone the repo.
+2. Update data in `src/data`.
+3. Adjust theme tokens in `src/styles/globals.scss`.
+4. Commit with `--no-gpg-sign` if you do not have signing set up.
+
+Issues and PRs are welcome if you notice something that can be improved. Enjoy building! 🚀
