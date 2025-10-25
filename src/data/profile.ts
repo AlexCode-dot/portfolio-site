@@ -31,16 +31,29 @@ export type Skill = {
 
 export const skills: Skill[] = [
   { name: "TypeScript & JavaScript", description: "Modern ES, type-safe full-stack patterns" },
-  { name: "Next.js & React", description: "App Router, RSC, SSR/ISR, hooks, SCSS modules" },
-  { name: "Backend (Node.js/Express)", description: "Controllers/services, validation, RBAC, sessions/JWT" },
-  { name: "Databases", description: "MongoDB Atlas, Mongoose, indexes, schema design (Redis ready)" },
-  { name: "APIs", description: "REST design, idempotency keys, rate limiting, error handling" },
-  { name: "Testing", description: "Jest unit/integration, Cypress E2E, CI-gated merges" },
-  { name: "DevOps & CI/CD", description: "Vercel, GitHub Actions, preview deploys, env management" },
-  { name: "Architecture", description: "Multi-tenant theming, session persistence, modular code" },
-  { name: "Security", description: "Auth flows, secure cookies, input sanitization, honeypots" },
-  { name: "UX & Accessibility", description: "Responsive layouts, keyboard-friendly UI, a11y basics" },
+  { name: "Next.js & React", description: "App Router, RSC/SSR/ISR, hooks, SCSS modules" },
+  { name: "Node.js & Express", description: "Controllers/services, validation, sessions/JWT, RBAC" },
+
+  { name: "Java & Spring Boot", description: "REST APIs, DI, layered architecture, testing" },
+
+  { name: "Databases (NoSQL & SQL)", description: "MongoDB Atlas/Mongoose, indexes; SQL fundamentals & schema design" },
+  { name: "Caching & Performance", description: "Redis, rate limiting, idempotency keys, p95/p99 thinking" },
+
+  { name: "APIs & Integrations", description: "REST design, error contracts, external APIs (e.g., OMDb)" },
+  { name: "Testing", description: "Jest, Supertest, Cypress E2E, CI-gated test pipelines" },
+
+  { name: "DevOps & CI/CD", description: "Vercel, GitHub Actions, environment configs, preview deploys" },
+  { name: "Containers", description: "Dockerizing services, local parity, image/version hygiene" },
+
+  { name: "Version Control", description: "Git branching, PR reviews, rebasing, protected main, conventional commits" },
+  { name: "Agile / Scrum", description: "Sprints, planning, standups, retros, iterative delivery" },
+  { name: "Team Practices", description: "Code reviews, shared repo standards, CI-enforced merging" },
+
+  { name: "Architecture", description: "Multi-tenant SaaS, session persistence, modular/clean code" },
+  { name: "Security", description: "OWASP basics, input sanitization, secure cookies, auth flows" },
+  { name: "UX & Accessibility", description: "Responsive layouts, keyboard navigation, a11y basics" },
 ];
+
 
 
 export type ContactLink = {
