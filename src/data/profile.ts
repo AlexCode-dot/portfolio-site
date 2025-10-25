@@ -8,7 +8,7 @@ export type HeroContent = {
 export const heroContent: HeroContent = {
   overline: "Alexander Andersson",
   title: "Software Engineer",
-  subtitle: "Building elegant solutions to complex problems.",
+  subtitle: "Crafting scalable, user-focused applications with clean architecture and modern tech.",
   cta: { label: "View My Work", href: "/#projects" },
 };
 
