@@ -12,7 +12,7 @@ Take a tour of the live site (once deployed) to browse featured work, detailed c
 
 ## What’s Inside the Portfolio
 
-- **Projects** – Real products and prototypes with context on architecture, impact, and learnings.
+- **Projects** - Real products and prototypes with context on architecture, impact, and learnings.
 - **Skills** – A snapshot of the stacks and practices I use to keep quality high.
 - **Project detail pages** – Scrollable stories with sticky galleries, highlights, and outcomes.
 - **Contact** – Simple ways to reach me if you want to collaborate or just say hi.
@@ -21,10 +21,9 @@ Take a tour of the live site (once deployed) to browse featured work, detailed c
 
 ## Tech Snapshot
 
-- Next.js 16 (App Router, React Server Components)
-- React 19 + TypeScript
+- Next.js (App Router, React Server Components)
+- React + TypeScript
 - SCSS Modules, modular design system
-- Jest, Cypress, CI-ready tooling
 
 ---
 
