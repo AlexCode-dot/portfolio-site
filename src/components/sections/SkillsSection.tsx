@@ -10,7 +10,7 @@ export function SkillsSection() {
         <p className={styles.kicker}>Capabilities</p>
         <h2 id="skills-title">Skills &amp; Stacks</h2>
         <p className={styles.lead}>
-          Areas where I deliver the most leverage—balancing product thinking with healthy engineering practices.
+          Areas where I deliver the most leverage - balancing product thinking with healthy engineering practices.
         </p>
       </header>
 
