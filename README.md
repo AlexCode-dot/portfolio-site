@@ -1,10 +1,10 @@
-## Hi, I’m Alexander Andersson 👋
+## Hi, I’m Alexander Andersson
 
 I’m a software engineering student who builds thoughtful, user-focused products. This portfolio highlights the projects, experiments, and engineering skills that best describe how I approach problem solving and ship production-ready software.
 
-- 📚 Currently studying software engineering while freelancing on the side.
-- 🛠️ Focused on TypeScript, Next.js, resilient APIs, and polished UX.
-- 🤝 Always open to networking, internships, collaborations, or mentoring chats.
+- Currently studying software engineering while freelancing on the side.
+- Focused on TypeScript, Next.js, resilient APIs, and polished UX.
+- Always open to networking, internships, collaborations, or mentoring chats.
 
 Take a tour of the live site (once deployed) to browse featured work, detailed case studies, and my current capabilities.
 
@@ -45,4 +45,4 @@ Content lives in `src/data/`, so adding new projects, skills, or contact links o
 - GitHub: [AlexCode-dot](https://github.com/AlexCode-dot)
 - LinkedIn: [Alexander Andersson](https://www.linkedin.com/in/alexander-andersson-43a6391a5/)
 
-I’m always happy to meet fellow engineers, founders, and designers. Feel free to reach out—let’s build something great together! 🚀
+I’m always happy to meet fellow engineers, founders, and designers. Feel free to reach out—let’s build something great together!
