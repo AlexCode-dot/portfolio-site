@@ -3,6 +3,13 @@ export type HeroContent = {
   title: string;
   subtitle: string;
   cta: { label: string; href: string };
+  resume: {
+    href: string;
+    downloadLabel: string;
+    previewLabel: string;
+    modalTitle: string;
+    downloadFileName: string;
+  };
 };
 
 export const heroContent: HeroContent = {
@@ -10,6 +17,13 @@ export const heroContent: HeroContent = {
   title: "Software Engineer",
   subtitle: "Crafting scalable, user-focused applications with clean architecture and modern tech.",
   cta: { label: "View My Work", href: "/#projects" },
+  resume: {
+    href: "/CV(English) - 2025 (software engineer).pdf",
+    downloadLabel: "Download Resume",
+    previewLabel: "Preview Online",
+    modalTitle: "Resume — Alexander Andersson",
+    downloadFileName: "Alexander-Andersson-CV-2025.pdf",
+  },
 };
 
 export type NavLink = {
