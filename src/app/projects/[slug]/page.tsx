@@ -1,10 +1,10 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { loadProjectBySlug } from "@/lib/projects";
 import { buildProjectMetadata } from "@/lib/seo";
 import { projects } from "@/data/project";
 import ProjectGallery from "@/components/ProjectGallery";
 import FadeScrollPane from "@/components/FadeScrollPane";
+import { ProjectActions } from "@/components/ProjectActions";
 import styles from "./project.module.scss";
 
 // Next 16: params is a Promise in RSC — await it.
@@ -34,26 +34,7 @@ export default async function ProjectPage(
         <h1>{p.title}</h1>
         <p className={styles.summary}>{p.summary}</p>
 
-        <div className={styles.actions}>
-          {p.links?.find((l) => l.label.toLowerCase().includes("live")) && (
-            <Link
-              href={p.links.find((l) => l.label.toLowerCase().includes("live"))!.href}
-              target="_blank" rel="noreferrer"
-              className={`${styles.cta} ${styles.primary}`}
-            >
-              ▶ Live demo
-            </Link>
-          )}
-          {p.links?.find((l) => l.label.toLowerCase().includes("github")) && (
-            <Link
-              href={p.links.find((l) => l.label.toLowerCase().includes("github"))!.href}
-              target="_blank" rel="noreferrer"
-              className={`${styles.cta} ${styles.outline}`}
-            >
-              ⎇ GitHub
-            </Link>
-          )}
-        </div>
+        <ProjectActions project={{ links: p.links, slug: p.slug, ctaNotice: p.ctaNotice }} />
 
         {p.tags?.length ? (
           <ul className={styles.tags}>

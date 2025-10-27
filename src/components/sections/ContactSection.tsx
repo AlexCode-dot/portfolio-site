@@ -9,9 +9,7 @@ export function ContactSection() {
       <header className="fade-in">
         <p className={styles.kicker}>Next Step</p>
         <h2 id="contact-title">Let&apos;s collaborate</h2>
-        <p className={styles.lead}>
-          I’m open to new projects, collaborations, and engineering roles where product velocity matters.
-        </p>
+        <p className={styles.lead}>I’m always up for connecting, exchanging ideas, or jumping in to help on projects already in motion.</p>
       </header>
 
       <div className={`${styles.links} fade-in`}>

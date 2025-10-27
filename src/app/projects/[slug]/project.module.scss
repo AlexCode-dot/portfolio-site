@@ -184,3 +184,94 @@
     font-size: 16px;
   }
 }
+
+.noticeOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: grid;
+  place-items: center;
+}
+
+.noticeBackdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 7, 12, 0.75);
+  backdrop-filter: blur(4px);
+}
+
+.noticeContent {
+  position: relative;
+  width: min(480px, calc(100% - 32px));
+  border-radius: 20px;
+  padding: 26px 28px 22px;
+  background: rgba(22, 24, 32, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 45px 110px rgba(0, 0, 0, 0.6);
+  display: grid;
+  gap: 20px;
+}
+
+.noticeHeader {
+  display: grid;
+  gap: 12px;
+}
+
+.noticeBadge {
+  margin: 0;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.noticeHeader h2 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.noticeBody {
+  display: grid;
+  gap: 12px;
+}
+
+.noticeBody p {
+  margin: 0;
+  line-height: 1.6;
+  color: rgba(228, 231, 245, 0.86);
+}
+
+.noticeFooter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.noticeContact {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.noticeContact:hover {
+  text-decoration: underline;
+}
+
+.noticeClose {
+  border: none;
+  border-radius: 999px;
+  padding: 10px 22px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.noticeClose:hover {
+  background: rgba(255, 255, 255, 0.18);
+  transform: translateY(-1px);
+}

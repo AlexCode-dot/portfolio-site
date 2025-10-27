@@ -11,6 +11,11 @@ export type Project = {
   highlights?: string[];
   results?: string[];
   screens?: { src: string; alt?: string }[];
+  ctaNotice?: {
+    title: string;
+    body: string[];
+    contact?: { label: string; href: string };
+  };
 };
 
 export const projects: Project[] = [
@@ -27,7 +32,7 @@ export const projects: Project[] = [
       { label: "GitHub", href: "https://github.com/AlexCode-dot/Wordle-Game" },
     ],
     problem:
-      "Recreate Wordle with configurable rules and a persistent leaderboard—while preventing cheating and preserving game progress across reloads.",
+      "Recreate Wordle with configurable rules and a persistent leaderboard-while preventing cheating and preserving game progress across reloads.",
     solution: [
       "Session-based game state: phase, settings, guesses restored on reload",
       "Backend-only feedback generation (no leaking the correct word to the client)",
@@ -119,25 +124,48 @@ export const projects: Project[] = [
   ],
 },
 
-  {
-    slug: "clearbook",
-    title: "Clearbook — Multi-tenant Booking SaaS",
-    summary: "Idempotent APIs, anti-double-booking, tenant themes, and an embeddable widget.",
-    cover: "/images/projects/clearbook/cover.png",
-    tags: ["Next.js", "TypeScript", "MongoDB", "Redis", "Jest", "Cypress"],
-    period: "2024–2025",
-    links: [
-      { label: "Live demo", href: "https://clearbook.app" },
-      { label: "GitHub", href: "https://github.com/yourname/clearbook" },
+{
+  "slug": "clearbook",
+  "title": "Clearbook — Multi-tenant Booking SaaS",
+  "summary": "Flexible multi-tenant booking platform with customizable services, rotating staff schedules, and concurrency-safe booking APIs.",
+  "cover": "/images/projects/clearbook/cover.png",
+  "tags": ["Next.js", "TypeScript", "MongoDB", "Redis", "NextAuth", "Cypress"],
+  "period": "2024–2025",
+  "links": [
+    { "label": "Live demo", "href": "https://clearbook.app" },
+    { "label": "GitHub", "href": "https://github.com/yourname/clearbook" }
+  ],
+  "problem": "Owner-operators juggle spreadsheets and DMs, inviting double-bookings and messy handoffs between staff.",
+  "solution": [
+    "Tenant-isolated data layer in MongoDB with owner/admin/staff RBAC, theming, and locale selection for both dashboard and widget.",
+    "Service catalog lets admins define pricing, slot granularity, categories, and assign staff with per-staff duration/price/buffer overrides.",
+    "Availability workspace combines a weekly planner, multi-week patterns, presets, and exceptions so teams publish polished schedules—drafts stay private until approved.",
+    "Public booking API enforces Idempotency-Key headers, honeypot spam checks, and unique bucket indexes to prevent overlapping reservations.",
+    "Redis-backed availability cache tagged per tenant/service/day with automatic invalidation on create, reschedule, or cancel.",
+    "Embeddable widget at /embed/[tenant] with ?theme overrides, localized stepper flow, and service discovery backed by the same APIs the dashboard uses."
+  ],
+  "highlights": [
+    "Staff-service join model supports per-person duration, buffer, and pricing overrides that feed straight into scheduling and booking validation.",
+    "Weekly planner tracks drafts/publish state, surfaces availability stats, and lets admins apply saved presets across rotating patterns in seconds.",
+    "Edge middleware applies per-IP rate limiting before public writes so retries are safe, and repeat requests replay the original booking payload.",
+    "Cypress covers the customer booking journey while node:test suites guard availability math; GitHub Actions run typecheck, build, and tests on every push."
+  ],
+  "results": [
+    "Draft/publish workflow plus Redis tag invalidation keeps schedule edits isolated until approval, then pushes fresh availability without downtime.",
+    "Closed beta tenants can theme both dashboard and widget in-app, eliminating custom CSS hand-offs while keeping brand consistency."
+  ],
+  "ctaNotice": {
+    "title": "Private Preview Available",
+    "body": [
+      "Clearbook is currently in a closed beta while I polish tenant provisioning and billing.",
+      "I’m happy to provide a guided demo or share a short walkthrough recording on request."
     ],
-    problem: "Small businesses risk double-bookings and scattered tools.",
-    solution: [
-      "Multi-tenant model with theme override (?theme)",
-      "Idempotent booking API (Idempotency-Key)",
-      "Overlap checks + unique bucket index",
-      "Public embed widget /embed/[slug]",
-    ],
-    highlights: ["Rescheduling via PATCH with overlap protection", "Bruno tests validate idempotency in CI"],
-    results: ["p95 API < 180ms local", "Lighthouse 95+ on detail pages"],
-  },
+    "contact": {
+      "label": "Email me at alle7000.andersson@gmail.com",
+      "href": "mailto:alle7000.andersson@gmail.com"
+    }
+  }
+}
+
+
 ];
