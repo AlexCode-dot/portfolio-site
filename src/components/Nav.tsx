@@ -53,7 +53,7 @@ export function Nav() {
 
   return (
     <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ""}`} id="site-nav">
-      <Link href="/" className={styles.logo}>
+      <Link href="/" className={styles.logo} aria-label="Alexander Andersson — Home">
         Alexander Andersson
       </Link>
 

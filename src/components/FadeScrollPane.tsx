@@ -23,9 +23,29 @@ export default function FadeScrollPane({
   fade = 72,
   className,
 }: Props) {
-  const wrapStyle = useMemo(
-    () => ({ top: `${stickyTop}px`, maxHeight: `calc(100vh - ${heightOffset}px)` }),
-    [stickyTop, heightOffset]
+  const getIsCompact = () =>
+    typeof window === "undefined" ? false : window.innerWidth <= 1050;
+  const [isCompact, setIsCompact] = useState<boolean>(getIsCompact);
+
+  useEffect(() => {
+    if (typeof window === "undefined") {
+      return;
+    }
+
+    const handleResize = () => setIsCompact(window.innerWidth <= 1050);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const wrapStyle = useMemo<CSSProperties | undefined>(
+    () => (isCompact ? undefined : { top: `${stickyTop}px`, maxHeight: `calc(100vh - ${heightOffset}px)` }),
+    [isCompact, stickyTop, heightOffset]
+  );
+  const wrapClassName = useMemo(
+    () => [styles.wrap, isCompact ? styles.freeWrap : ""].filter(Boolean).join(" "),
+    [isCompact]
   );
   const paneRef = useRef<HTMLDivElement>(null);
 
@@ -34,6 +54,8 @@ export default function FadeScrollPane({
   const [atRest, setAtRest] = useState(false);
 
   useEffect(() => {
+    if (isCompact) return;
+
     const el = paneRef.current;
     if (!el) return;
 
@@ -52,25 +74,22 @@ export default function FadeScrollPane({
     onScroll(); // initialize
     el.addEventListener("scroll", onScroll, { passive: true });
     return () => el.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [isCompact]);
 
-  const paneClass =
-    [
-      styles.pane,
-      scrolledDown ? styles.scrolledDown : "",
-      atBottom ? styles.atBottom : "",
-      atRest ? styles.atRest : "",
-      className || "",
-    ]
-      .filter(Boolean)
-      .join(" ");
+  const paneClasses = [
+    styles.pane,
+    className || "",
+    isCompact ? styles.freePane : "",
+    !isCompact && scrolledDown ? styles.scrolledDown : "",
+    !isCompact && atBottom ? styles.atBottom : "",
+    !isCompact && atRest ? styles.atRest : "",
+  ].filter(Boolean);
 
-  // Expose the fade size to CSS via style if you want to tweak per instance
-  const paneStyle: FadeCSSProperties = { "--fade": `${fade}px` };
+  const paneStyle: FadeCSSProperties | undefined = isCompact ? undefined : { "--fade": `${fade}px` };
 
   return (
-    <div className={styles.wrap} style={wrapStyle}>
-      <div ref={paneRef} className={paneClass} style={paneStyle}>
+    <div className={wrapClassName} style={wrapStyle}>
+      <div ref={paneRef} className={paneClasses.join(" ")} style={paneStyle}>
         {children}
       </div>
     </div>

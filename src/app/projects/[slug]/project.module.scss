@@ -147,4 +147,40 @@
   .root {
     padding: 120px 18px 100px;
   }
+
+  .header {
+    text-align: left;
+    gap: 14px;
+  }
+
+  .summary {
+    font-size: 16px;
+    text-align: left;
+  }
+
+  .actions {
+    justify-content: flex-start;
+  }
+
+  .tags {
+    justify-content: flex-start;
+  }
+
+  .layout {
+    gap: 28px;
+  }
+
+  .scrollPane {
+    gap: 16px;
+    margin-top: 12px;
+  }
+
+  .card {
+    padding: 18px 16px;
+    gap: 10px;
+  }
+
+  .card h2 {
+    font-size: 16px;
+  }
 }

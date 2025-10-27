@@ -11,6 +11,14 @@
   margin-top: 30px;         /* clip the scroll body; masks do the fade */
 }
 
+.freeWrap {
+  position: static;
+  top: auto;
+  max-height: none;
+  margin-top: 0;
+  overflow: visible;
+}
+
 /* The actual scroll area */
 .pane {
   max-height: inherit;
@@ -80,4 +88,17 @@
 .atRest {
   -webkit-mask-image: none;
           mask-image: none;
+}
+
+.freePane {
+  max-height: none;
+  overflow: visible;
+  padding-right: 0;
+  -webkit-mask-image: none;
+          mask-image: none;
+  scrollbar-width: none;
+}
+
+.freePane::-webkit-scrollbar {
+  display: none;
 }
