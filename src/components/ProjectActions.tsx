@@ -32,7 +32,8 @@ export function ProjectActions({ project }: ProjectActionsProps) {
     setIsNoticeOpen(true);
   };
 
-  const shouldShowNotice = Boolean(ctaNotice && slug === "clearbook");
+  // Clearbook should link directly to its live site; keep notice available for other projects if needed.
+  const shouldShowNotice = Boolean(ctaNotice && slug !== "clearbook");
 
   return (
     <>
